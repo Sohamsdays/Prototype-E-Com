@@ -9,7 +9,7 @@ import { Dialog, Popover, Tab, Transition } from "@headlessui/react";
 import React, { Fragment, useEffect, useState } from "react";
 import ShoppingCart from "./ShoppingCart";
 import SearchBar from "./SearchBar";
-import UserAccount from "./userAccount";
+import UserAccount from "./UserAccount";
 import { useCartStore } from "@/store/cartStore";
 import { useRouter } from "next/navigation";
 //import { useSession } from "next-auth/react";

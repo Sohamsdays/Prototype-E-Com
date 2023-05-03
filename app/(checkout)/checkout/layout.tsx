@@ -6,7 +6,9 @@ import { Inter } from "next/font/google";
 import CheckoutHeader from "@/components/CheckoutFlow/Checkout.Header";
 import CheckoutFooter from "@/components/CheckoutFlow/Checkout.Footer";
 import { SessionProvider, signIn, signOut, useSession } from "next-auth/react";
+import { Session } from "next-auth";
 const inter = Inter({ subsets: ["latin"] });
+import { getServerSession } from "next-auth/next"
 
 // export const metadata = {
 //   title: "Create Next App",
@@ -18,8 +20,9 @@ export default function RootLayout({
   session,
 }: {
   children: React.ReactNode;
-  session: any;
+  session: Session;
 }) {
+  
   return (
     <html lang="en">
       <body className="flex flex-col h-screen leading-normal tracking-normal bg-gray-100">
