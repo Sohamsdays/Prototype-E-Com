@@ -1,6 +1,6 @@
 "use client";
 import ShoppingCart from "./ShoppingCart";
-import UserAccount from "./userAccount";
+import UserAccount from "./UserAccount";
 import { Dialog, Popover, Tab, Transition } from "@headlessui/react";
 import {
   Bars3Icon,
