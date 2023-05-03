@@ -18,7 +18,7 @@ const fetcher = (url: string) => fetch(url).then((res) => res.json());
 const fetcherr = async () => {
   const response = await fetch("");
 };
-export default function SearchResult({ params, searchParams }) {
+export default function SearchResult({  searchParams }:{searchParams:string}) {
   // const { data, isLoading } = useQuery({
   //   queryFn: async () => {
   //     const { data } = await axios.get(
@@ -60,7 +60,7 @@ export default function SearchResult({ params, searchParams }) {
             Search Result For {searchParams.q}
           </h1>
 
-          <ProductList products={data} searchQuery={searchParams.q} />
+          <ProductList products={data}  />
         </div>
       </div>
     </>

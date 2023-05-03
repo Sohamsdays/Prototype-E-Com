@@ -44,7 +44,7 @@ export default function ProductsByCategory() {
           <h1 className="w-full font-medium py-6 text-2xl pb-3 px-4 border-b border-gray-200">
             Products by category
           </h1>
-          <ProductList products={data} searchQuery={""} />
+          <ProductList products={data}  />
         </div>
       </div>
     </>
