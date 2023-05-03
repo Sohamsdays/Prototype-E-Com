@@ -14,13 +14,7 @@ pnpm dev
 
 
 
-## Project Technical Documentation
 
-To learn more about the frontend, take a look at the following resources:
-
-- [Konnaa.com Documentation](https://nextjs.org/docs) - learn about konnaa.com WebUI and API.
-
-You can check out [the konnaa.com CodeCommit repository](https://github.com/vercel/next.js/)
 
 ## Naming Rules
 
