@@ -1,5 +1,5 @@
 "use client";
-import FilterWidget from "@/components/productList/FilterWidget";
+import FilterWidget from "@/components/ProductList/FilterWidget";
 import ProductList from "@/components/ProductList/ProductList";
 import axios from "axios";
 //import { ErrorBoundary } from "react-error-boundary";

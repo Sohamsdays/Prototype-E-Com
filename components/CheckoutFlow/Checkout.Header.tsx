@@ -8,7 +8,7 @@ import {
 import { Dialog, Popover, Tab, Transition } from "@headlessui/react";
 import React, { Fragment, useEffect, useState } from "react";
 
-import UserAccount from "../Navigation/userAccount";
+import UserAccount from "../Navigation/UserAccount";
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
