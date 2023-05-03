@@ -1,5 +1,5 @@
 "use client";
-import FilterWidget from "@/components/productList/filterWidget";
+import FilterWidget from "@/components/productList/FilterWidget";
 import Loading from "@/components/ProductList/Loading";
 import ProductList from "@/components/ProductList/ProductList";
 import axios from "axios";

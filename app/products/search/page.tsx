@@ -1,5 +1,5 @@
 "use client";
-import FilterWidget from "@/components/productList/filterWidget";
+import FilterWidget from "@/components/productList/FilterWidget";
 import ProductList from "@/components/ProductList/ProductList";
 import axios from "axios";
 //import { ErrorBoundary } from "react-error-boundary";
@@ -46,7 +46,7 @@ export default function SearchResult({ params, searchParams }) {
 
   // ...
   if (error) throw Error;
-  if (isLoading) return <Loading/>;
+  if (isLoading) return <Loading />;
   if (data.total === 0) {
     throw Error;
   }
