@@ -1,7 +1,7 @@
 "use client";
 
 import React, { Fragment, useEffect, useState } from "react";
-import AppBarMobile from "./AppBar.mobile";
+import AppBarMobile from "./AppBar.Mobile";
 import SearchBar from "./SearchBar";
 
 export default function NavMobile() {
