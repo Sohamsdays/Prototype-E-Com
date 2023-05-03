@@ -10,27 +10,38 @@ import {
   ArrowRightOnRectangleIcon,
 } from "@heroicons/react/24/outline";
 // import { signIn, useSession } from "next-auth/react";
-import { Session } from "next-auth";
+import { DefaultSession, ISODateString, Session } from "next-auth";
 import { SessionProvider, signIn, signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
 }
 
+interface Session1 extends DefaultSession {
+  user?: {
+    name?: string | null;
+    email?: string | null;
+    image?: string | null;
+    username?: string | null;
+  };
+  expires: ISODateString;
+}
+
 export default function UserAccount() {
   // const { data: session } = useSession();
   // console.log(324234, session);
-  const { data: session, status } = useSession();
+  const { data, status } = useSession();
+  const Session1 = data as Session1;
   console.log("Hello");
   const router = useRouter();
   return (
     <>
-      {session?.user ? (
+      {Session1?.user ? (
         <Menu as="div" className="relative inline-block text-left">
           <div>
             <Menu.Button className="inline-flex w-full justify-center gap-x-1.5 items-center   px-3 py-2 text-sm font-semibold text-gray-900   hover:bg-gray-50">
               <UserCircleIcon className="h-6 w-6 text-gray-500" />
-              {session.user.username}
+              {Session1.user.username}
             </Menu.Button>
           </div>
 
@@ -48,13 +59,10 @@ export default function UserAccount() {
                 <Menu.Item>
                   {({ active }) => (
                     <button
-                    className={classNames(
-                      active
-                        ? "bg-gray-100 text-gray-900"
-                        : "text-gray-700",
-                      "inline-flex px-4 py-2 text-sm w-full"
-                    )}
-                      
+                      className={classNames(
+                        active ? "bg-gray-100 text-gray-900" : "text-gray-700",
+                        "inline-flex px-4 py-2 text-sm w-full"
+                      )}
                       onClick={() => router.push("/user/profile")}
                     >
                       <UserIcon className="h-5 w-5 mr-3 text-gray-500" />

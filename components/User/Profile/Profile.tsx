@@ -1,14 +1,27 @@
 "use client";
 
-import { Session } from "next-auth";
+import { DefaultSession, ISODateString, Session } from "next-auth";
 import { SessionProvider, signIn, signOut, useSession } from "next-auth/react";
 
+interface Session1 extends DefaultSession {
+  user?: {
+    name?: string | null;
+    email?: string | null;
+    image?: string ;
+    username?: string;
+    lastName?: string;
+    firstName?: string;
+    gender?: string;
+  };
+  expires: ISODateString;
+}
 export default function Profile() {
-  const { data: session, status } = useSession();
-
+  //const { data: session, status } = useSession();
+  const { data, status } = useSession();
+  const Session1 = data as Session1;
   return (
     <>
-      {session?.user ? (
+      {Session1?.user ? (
         <form
           className="divide-y divide-gray-200 lg:col-span-9"
           action="#"
@@ -41,11 +54,11 @@ export default function Profile() {
               </span> */}
                     <input
                       type="text"
-                      name={session.user.username}
+                      //name={Session1.user.username || null}
                       id="username"
                       autoComplete="username"
                       className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm"
-                      defaultValue={session.user.username}
+                      defaultValue={Session1.user.username}
                     />
                   </div>
                 </div>
@@ -66,7 +79,7 @@ export default function Profile() {
                     >
                       <img
                         className="rounded-full h-full w-full"
-                        src={session.user.image}
+                        src={Session1.user.image}
                         alt="Hello"
                       />
                     </div>
@@ -93,7 +106,7 @@ export default function Profile() {
                 <div className="hidden relative rounded-full overflow-hidden lg:block">
                   <img
                     className="relative rounded-full w-40 h-40"
-                    src={session.user.image}
+                    src={Session1.user.image}
                     alt=""
                   />
                   <label
@@ -122,7 +135,7 @@ export default function Profile() {
                   First name
                 </label>
                 <input
-                  defaultValue={session.user.firstName}
+                  defaultValue={Session1.user.firstName}
                   type="text"
                   name="first-name"
                   id="first-name"
@@ -139,7 +152,7 @@ export default function Profile() {
                   Last name
                 </label>
                 <input
-                  defaultValue={session.user.lastName}
+                  defaultValue={Session1.user.lastName}
                   type="text"
                   name="last-name"
                   id="last-name"
@@ -156,7 +169,7 @@ export default function Profile() {
                   Gender
                 </label>
                 <input
-                  defaultValue={session.user.gender}
+                  defaultValue={Session1.user.gender}
                   type="text"
                   name="company"
                   id="company"

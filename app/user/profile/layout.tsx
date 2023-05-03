@@ -12,6 +12,7 @@ import {
 import React from "react";
 import { Session } from "next-auth";
 import { SessionProvider, signIn, signOut, useSession } from "next-auth/react";
+import Providers from "@/app/provider/providers";
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
@@ -31,14 +32,15 @@ const subNavigation = [
 ];
 export default function DashboardLayout({
   children, // will be a page or nested layout
-  session,
+  // session,
 }: {
   children: React.ReactNode;
-  session: any;
+  // session: any;
 }) {
   const [name, setName] = React.useState("Plan & Billing");
   return (<>
-  <SessionProvider session={session}>
+  {/* <SessionProvider session={session}> */}
+  <Providers>
     <section className=" relative  flex h-full w-full flex-row ">
       {/* Include shared UI here e.g. a header or sidebar */}
       <aside className="w-64 px-4 basis-64 sticky top-32 self-start">
@@ -73,7 +75,8 @@ export default function DashboardLayout({
 
       {children}
     </section>
-    </SessionProvider>
+    </Providers>
+    {/* </SessionProvider> */}
     </>
   );
 }

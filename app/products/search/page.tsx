@@ -18,7 +18,7 @@ const fetcher = (url: string) => fetch(url).then((res) => res.json());
 const fetcherr = async () => {
   const response = await fetch("");
 };
-export default function SearchResult({  searchParams }:{searchParams:string}) {
+export default function SearchResult({  searchParams }:{searchParams:any}) {
   // const { data, isLoading } = useQuery({
   //   queryFn: async () => {
   //     const { data } = await axios.get(

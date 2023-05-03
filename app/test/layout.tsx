@@ -5,6 +5,7 @@ import Header from "@/components/Navigation/Header";
 import Footer from "@/components/Footer";
 import { Session } from "next-auth";
 import { SessionProvider, signIn, signOut, useSession } from "next-auth/react";
+import Providers from "../provider/providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,30 +16,32 @@ const inter = Inter({ subsets: ["latin"] });
 
  function RootLayout({
   children,
-  session,
+  // session,
 }: // session,
 {
   children: React.ReactNode;
-  session: any;
+  // session: any;
 }) {
-  console.log(session);
+  // console.log(session);
 
   return (
     <html lang="en">
       <body className="flex flex-col h-screen leading-normal tracking-normal bg-gray-100">
-        <SessionProvider session={session}>
+        {/* <SessionProvider session={session}> */}
+        <Providers>
           {/* to keep footer on the bottom always, add justify-between in the body */}
           <Header />
           <main className=" mt-36 max-w-7xl mx-auto mb-auto relative  border-2 border-red-500">
             {children}
           </main>
           <Footer />
+          </Providers>
           {/* {data?.user ? (
             <button onClick={() => signOut()}> Sign in {data.user.name}</button>
           ) : (
             <button onClick={() => signIn()}> Sign in</button>
           )} */}
-        </SessionProvider>
+        {/* </SessionProvider> */}
       </body>
     </html>
   );

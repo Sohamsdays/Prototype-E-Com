@@ -4,7 +4,7 @@ import { useSearchParams } from "next/navigation";
 import React from "react";
 
 export default function SearchBar() {
-  const searchValue = useSearchParams()?.get("q") || "" || null;
+  const searchValue = useSearchParams()?.get("q") || "" as string;
 
   const [searchInputValue, setSearchInputValue] =
     React.useState<string>(searchValue);
