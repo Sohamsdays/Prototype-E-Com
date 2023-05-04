@@ -211,7 +211,7 @@ export default function ShoppingCart() {
                         >
                           Checkoutsdfdsf
                         </button>
-                        <Link href="/dashboard">Dashboard</Link>
+                        
                         {/* </a> */}
                       </div>
                       <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
