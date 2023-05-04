@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import {
   Bars3Icon,
   MagnifyingGlassIcon,
@@ -284,7 +285,7 @@ export default function AppBarDesktop() {
                               >
                                 Checkout
                               </button>
-
+                              
                               {/* </a> */}
                             </div>
                             <div className="mt-6 flex justify-center text-center text-sm text-gray-500">

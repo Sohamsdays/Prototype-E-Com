@@ -123,14 +123,9 @@ export default function ShoppingCart() {
                                 <div className="ml-4 flex flex-1 flex-col">
                                   <div>
                                     <div className="flex justify-between text-base font-medium text-gray-900">
-                                      <h3>
-                                        
-                                          {product.title}
-                                        
-                                      </h3>
+                                      <h3>{product.title}</h3>
                                       <p className="ml-4">{product.price}</p>
                                     </div>
-                                    
                                   </div>
                                   <div className="flex flex-1 items-end justify-between text-sm">
                                     {/* <p className="text-gray-500">
@@ -214,9 +209,9 @@ export default function ShoppingCart() {
                               : "bg-blue-500 text-white font-bold py-2 px-4 rounded opacity-50 cursor-not-allowed"
                           }
                         >
-                          Checkout
+                          Checkoutsdfdsf
                         </button>
-
+                        <Link href="/dashboard">Dashboard</Link>
                         {/* </a> */}
                       </div>
                       <div className="mt-6 flex justify-center text-center text-sm text-gray-500">

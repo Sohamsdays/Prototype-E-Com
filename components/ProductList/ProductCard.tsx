@@ -59,11 +59,14 @@ function ProductCard({ product }: { product: Product }) {
       </div>
 
       <div className="flex items-center w-full absolute bottom-0">
-        <button className="h-10 basis-1/4 relative flex border-t hover:border-gray-200  w-full px-2 items-center justify-center">
-          <button onClick={handleClick}>
+        <button
+          onClick={handleClick}
+          className="h-10 basis-1/4 relative flex border-t hover:border-gray-200  w-full px-2 items-center justify-center"
+        >
+          <button>
             <HeartIcon
-              className={`h-6 w-6 ${
-                colorRed ? "text-red-500" : "text-gray-500"
+              className={`h-6 w-6   ${
+                colorRed ? "fill-red-500" : "text-gray-500"
               }  `}
             />
           </button>
