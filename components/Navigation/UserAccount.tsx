@@ -98,25 +98,25 @@ export default function UserAccount() {
                     </a>
                   )}
                 </Menu.Item> */}
-                <form method="POST" action="#">
-                  <Menu.Item>
-                    {({ active }) => (
-                      <button
-                        onClick={() => signOut({ redirect: false,callbackUrl:"/" })}
-                        type="submit"
-                        className={classNames(
-                          active
-                            ? "bg-gray-100 text-gray-900"
-                            : "text-gray-700",
-                          "inline-flex px-4 py-2 text-sm w-full"
-                        )}
-                      >
-                        <ArrowRightOnRectangleIcon className="h-5 w-5 mr-3 text-gray-500" />
-                        Log out
-                      </button>
-                    )}
-                  </Menu.Item>
-                </form>
+                {/* <form method="POST" action="#"> */}
+                <Menu.Item>
+                  {({ active }) => (
+                    <button
+                      onClick={() =>
+                        signOut({ redirect: false, callbackUrl: "/" })
+                      }
+                      type="submit"
+                      className={classNames(
+                        active ? "bg-gray-100 text-gray-900" : "text-gray-700",
+                        "inline-flex px-4 py-2 text-sm w-full"
+                      )}
+                    >
+                      <ArrowRightOnRectangleIcon className="h-5 w-5 mr-3 text-gray-500" />
+                      Log out
+                    </button>
+                  )}
+                </Menu.Item>
+                {/* </form> */}
               </div>
             </Menu.Items>
           </Transition>
