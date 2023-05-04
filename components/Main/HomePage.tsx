@@ -1,5 +1,5 @@
 "use client";
-
+import { useRouter } from "next/navigation";
 import { usePathname } from "next/navigation";
 import React from "react";
 import useSWR from "swr";
@@ -13,13 +13,14 @@ import "./styles.css";
 import HomePageProducts from "./HomePageProducts";
 import { signOut } from "next-auth/react";
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
+
 export default function HomePage() {
   const pathname = usePathname();
   const { data, error, isLoading } = useSWR(
     `https://dummyjson.com/products?limit=10&skip=10`,
     fetcher
   );
-
+  const router = useRouter();
   //console.log(data);
 
   // const { data } = await axios.get(
@@ -41,7 +42,8 @@ export default function HomePage() {
   return (
     <>
       <div className="w-full py-6 flex flex-col items-center mx-auto">
-        {/* Caraousel */}<button onClick={()=>signOut()}></button>
+        {/* Caraousel */}
+        <button onClick={() => signOut()}></button>
         <div className="carousel relative container mx-auto">
           <div className="carousel-inner relative overflow-hidden w-full">
             <Swiper
@@ -51,11 +53,13 @@ export default function HomePage() {
             >
               <SwiperSlide>
                 <img
+                  className="cursor-pointer"
                   onClick={() => {
                     console.log("clicked");
+                    router.push("/products/category/womens-dresses");
                   }}
                   alt="product_image"
-                  src="https://images.unsplash.com/photo-1533090161767-e6ffed986c88?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjM0MTM2fQ"
+                  src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
                   width={200}
                   height={200}
                   style={{ width: "full", height: "500px" }}
@@ -63,8 +67,13 @@ export default function HomePage() {
               </SwiperSlide>
               <SwiperSlide>
                 <img
+                  onClick={() => {
+                    console.log("clicked");
+                    router.push("/products/category/laptops");
+                  }}
+                  className="cursor-pointer"
                   alt="product_image"
-                  src="https://images.unsplash.com/photo-1533090161767-e6ffed986c88?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjM0MTM2fQ"
+                  src="https://images.unsplash.com/photo-1550009158-9ebf69173e03?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1201&q=80"
                   width={200}
                   height={200}
                   style={{ width: "full", height: "500px" }}
@@ -72,6 +81,11 @@ export default function HomePage() {
               </SwiperSlide>
               <SwiperSlide>
                 <img
+                  onClick={() => {
+                    console.log("clicked");
+                    router.push("/products/category/lighting");
+                  }}
+                  className="cursor-pointer"
                   alt="product_image"
                   src="https://images.unsplash.com/photo-1533090161767-e6ffed986c88?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjM0MTM2fQ"
                   width={200}
@@ -92,7 +106,7 @@ export default function HomePage() {
 
             <HomePageProducts />
 
-            <div className="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
+            {/* <div className="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
               <a href="#">
                 <img
                   className="hover:grow hover:shadow-lg"
@@ -210,9 +224,9 @@ export default function HomePage() {
                 </div>
                 <p className="pt-1 text-gray-900">£9.99</p>
               </a>
-            </div>
+            </div> */}
 
-            <div className="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
+            {/* <div className="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
               <a href="#">
                 <img
                   className="hover:grow hover:shadow-lg"
@@ -250,11 +264,11 @@ export default function HomePage() {
                 </div>
                 <p className="pt-1 text-gray-900">£9.99</p>
               </a>
-            </div>
+            </div> */}
           </div>
         </section>
 
-        <section className="bg-white py-8">
+        {/* <section className="bg-white py-8">
           <div className="container py-8 px-6 mx-auto">
             <a
               className="uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl mb-8"
@@ -310,7 +324,7 @@ export default function HomePage() {
               ac.
             </p>
           </div>
-        </section>
+        </section> */}
       </div>
     </>
   );

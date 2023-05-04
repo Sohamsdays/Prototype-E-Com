@@ -88,11 +88,12 @@ export default function AppBarDesktop() {
       <div className="ml-4 flex lg:ml-0">
         <a href="/">
           <span className="sr-only">Workflow</span>
-          <img
+          {/* <img
             className="h-8 w-auto"
             src="https://tailwindui.com/img/logos/workflow-mark.svg?color=indigo&shade=600"
             alt=""
-          />
+          /> */}
+          <h1 className="font-bold text-2xl">Koona.xyz</h1>
         </a>
       </div>
 
@@ -186,16 +187,11 @@ export default function AppBarDesktop() {
                                       <div className="ml-4 flex flex-1 flex-col">
                                         <div>
                                           <div className="flex justify-between text-base font-medium text-gray-900">
-                                            <h3>
-                                              
-                                                {product.title}
-                                              
-                                            </h3>
+                                            <h3>{product.title}</h3>
                                             <p className="ml-4">
                                               {product.price}
                                             </p>
                                           </div>
-                                          
                                         </div>
                                         <div className="flex flex-1 items-end justify-between text-sm">
                                           {/* <p className="text-gray-500">
@@ -251,7 +247,7 @@ export default function AppBarDesktop() {
                                               type="button"
                                               className="font-medium text-indigo-600 hover:text-indigo-500"
                                             >
-                                              Removee
+                                              Remove
                                             </button>
                                           </div>
                                         </div>

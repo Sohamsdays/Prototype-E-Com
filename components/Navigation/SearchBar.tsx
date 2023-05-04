@@ -22,7 +22,7 @@ export default function SearchBar() {
           className="border-2 border-gray-300 focus:border-pink-600  bg-white h-11 px-5 pr-16 rounded-lg text-sm focus:outline-none md:w-[700px] w-full "
           type="search"
           name="q"
-          placeholder="Search for Facewash, Kajol, Lipstick..."
+          placeholder="Search for Phone, Car, Shirt..."
           value={searchInputValue}
           onChange={(event) => handleSearchInput(event)}
         />
