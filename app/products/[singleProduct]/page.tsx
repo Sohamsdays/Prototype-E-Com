@@ -43,7 +43,7 @@ export default function SingleProduct() {
   if (data.total === 0) {
     throw Error;
   }
-  console.log(data.images[0]);
+  //console.log(data.images[0]);
 
   return (
     <>

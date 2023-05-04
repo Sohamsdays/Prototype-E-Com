@@ -1,38 +1,23 @@
 "use client";
 import FilterWidget from "@/components/ProductList/FilterWidget";
+import Loading from "@/components/ProductList/Loading";
 import ProductList from "@/components/ProductList/ProductList";
 import axios from "axios";
-//import { ErrorBoundary } from "react-error-boundary";
-//import Error from "next/error";
-//import Error from "@/components/Error/Error";
-import { Suspense } from "react";
-//import Error from "@/app/products/search/error";
-
-import Error from "./error";
-import { ErrorBoundary } from "react-error-boundary";
-import React from "react";
-import { useQuery } from "@tanstack/react-query";
 import useSWR from "swr";
-import Loading from "@/components/ProductList/Loading";
+import { usePathname } from "next/navigation";
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
-const fetcherr = async () => {
-  const response = await fetch("");
-};
-export default function SearchResult({  searchParams }:{searchParams:any}) {
-  // const { data, isLoading } = useQuery({
-  //   queryFn: async () => {
-  //     const { data } = await axios.get(
-  //       `https://dummyjson.com/products/search?q=phone`
-  //     );
-  //     return data;
-  //   },
-  // });
-
-  //
+export default function ProductsByCategory() {
+  // const { data } = await axios.get(
+  //   `https://www.purplle.com/neo/merch/items?list_type=search&custom=&list_type_value=lipstick&page=1`
+  // );
+  const pathname = usePathname();
+  console.log(pathname);
   const { data, error, isLoading } = useSWR(
-    `https://dummyjson.com/products/search?q=${searchParams.q}`,
+    `https://dummyjson.com${pathname}`,
     fetcher
   );
+
+  //console.log(data);
 
   // const { data } = await axios.get(
   //   `https://dummyjson.com/products/search?q=phone`
@@ -45,12 +30,12 @@ export default function SearchResult({  searchParams }:{searchParams:any}) {
   //   .then(console.log);
 
   // ...
-  console.log(searchParams.q, 232)
   if (error) throw Error;
   if (isLoading) return <Loading />;
   if (data.total === 0) {
     throw Error;
   }
+
   return (
     <>
       <div className="relative  flex h-full w-full flex-row">
@@ -58,10 +43,9 @@ export default function SearchResult({  searchParams }:{searchParams:any}) {
 
         <div className="border-l border-gray-200 ">
           <h1 className="w-full font-medium py-6 text-2xl pb-3 px-4 border-b border-gray-200">
-            Search Result For {searchParams.q}
+            Products by category
           </h1>
-
-          <ProductList products={data}  />
+          <ProductList products={data} />
         </div>
       </div>
     </>
