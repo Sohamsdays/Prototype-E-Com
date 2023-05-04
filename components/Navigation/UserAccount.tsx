@@ -102,7 +102,7 @@ export default function UserAccount() {
                   <Menu.Item>
                     {({ active }) => (
                       <button
-                        onClick={() => signOut({ redirect: false })}
+                        onClick={() => signOut({ redirect: false,callbackUrl:"/" })}
                         type="submit"
                         className={classNames(
                           active

@@ -11,6 +11,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "./styles.css";
 import HomePageProducts from "./HomePageProducts";
+import { signOut } from "next-auth/react";
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 export default function HomePage() {
   const pathname = usePathname();
@@ -40,7 +41,7 @@ export default function HomePage() {
   return (
     <>
       <div className="w-full py-6 flex flex-col items-center mx-auto">
-        {/* Caraousel */}
+        {/* Caraousel */}<button onClick={()=>signOut()}></button>
         <div className="carousel relative container mx-auto">
           <div className="carousel-inner relative overflow-hidden w-full">
             <Swiper
@@ -287,7 +288,9 @@ export default function HomePage() {
                 target="_blank"
               >
                 https://www.metricdesign.no/
+                
               </a>
+              <button onClick={()=>signOut()}>Logout here</button>
             </p>
 
             <p className="mb-8">
