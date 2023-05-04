@@ -6,6 +6,8 @@ import { Fragment, useEffect } from "react";
 import { useCartStore } from "@/store/cartStore";
 import { Suspense } from "react";
 import CheckoutItemList from "@/components/CheckoutFlow/CheckoutItemList";
+import { useSession, getSession } from "next-auth/react";
+import Redirect from "@/components/Redirect/Redirect";
 const steps = [
   { name: "Address", href: "#", status: "current" },
   { name: "Payment", href: "#", status: "upcoming" },
@@ -43,12 +45,19 @@ interface Products {
   products: Product[];
 }
 
- const CheckoutPage = () => {
+const CheckoutPage = () => {
   const cart = useCartStore((state) => state.cart);
-  useEffect(()=>{
-    
-  },[cart])
+  const { data: session, status } = useSession();
+  useEffect(() => {}, [cart]);
   console.log(cart);
+
+  if (status === "loading") {
+    return null;
+  }
+
+  if (status === "unauthenticated") {
+    return <Redirect />;
+  }
   return (
     <div className="bg-white ">
       {/* Background color split screen for large screens */}
@@ -173,7 +182,7 @@ interface Products {
                   </label>
                   <div className="mt-1">
                     <input
-                    placeholder="MM/YY"
+                      placeholder="MM/YY"
                       type="text"
                       name="expiration-date"
                       id="expiration-date"
@@ -212,8 +221,6 @@ interface Products {
               </h2>
 
               <div className="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-3">
-               
-
                 <div className="sm:col-span-3">
                   <label
                     htmlFor="address"
@@ -223,7 +230,6 @@ interface Products {
                   </label>
                   <div className="mt-1">
                     <textarea
-                      
                       id="address"
                       name="address"
                       autoComplete="street-address"
@@ -241,7 +247,6 @@ interface Products {
                   </label>
                   <div className="mt-1">
                     <textarea
-                      
                       id="apartment"
                       name="apartment"
                       className="pl-3 block border-2 h-16 w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
@@ -334,12 +339,12 @@ interface Products {
 
             <div className="mt-10 pt-6 border-t border-gray-200 sm:flex sm:items-center sm:justify-between">
               {/* <Link href="/with_progress_bars"> */}
-                <button
-                  type="submit"
-                  className="w-full bg-indigo-600 border border-transparent rounded-md shadow-sm py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500 sm:ml-6 sm:order-last sm:w-auto"
-                >
-                  Continue
-                </button>
+              <button
+                type="submit"
+                className="w-full bg-indigo-600 border border-transparent rounded-md shadow-sm py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500 sm:ml-6 sm:order-last sm:w-auto"
+              >
+                Continue
+              </button>
               {/* </Link> */}
               <p className="mt-4 text-center text-sm text-gray-500 sm:mt-0 sm:text-left">
                 You be charged until the next step.
@@ -362,8 +367,7 @@ interface Products {
                 Order summary
               </h2>
 
-              
-                {/* <ul
+              {/* <ul
                   role="list"
                   className="text-sm font-medium text-gray-900 divide-y divide-gray-200"
                 >
@@ -391,7 +395,7 @@ interface Products {
                   ))}
                 
                 </ul> */}
-              
+
               <CheckoutItemList />
               <dl className="hidden text-sm font-medium text-gray-900 space-y-6 border-t border-gray-200 pt-6 lg:block">
                 <div className="flex items-center justify-between">
@@ -480,6 +484,6 @@ interface Products {
       </main>
     </div>
   );
-}
+};
 
 export default CheckoutPage;
