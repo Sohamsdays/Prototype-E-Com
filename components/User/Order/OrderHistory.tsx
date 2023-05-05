@@ -2,7 +2,7 @@
 import { CheckIcon } from "@heroicons/react/24/outline";
 import { useCartStore } from "@/store/cartStore";
 import { useEffect, useState } from "react";
-
+import Link from "next/link";
 const orders = [
   {
     number: "WU88191111",
@@ -127,16 +127,10 @@ export default function OrderHistory() {
                 </p>
               </div>
               <div className="mt-2 flex text-sm font-medium sm:mt-4">
-                <a
-                  href={product.brand}
-                  className="text-indigo-600 hover:text-indigo-500"
-                >
-                  View Product
-                </a>
+                
+                <Link href={`/products/${product.id}`} className="text-indigo-600 hover:text-indigo-500"> Go to Product</Link>
                 <div className="border-l border-gray-200 ml-4 pl-4 sm:ml-6 sm:pl-6">
-                  <a href="#" className="text-indigo-600 hover:text-indigo-500">
-                    Buy Again
-                  </a>
+                  <p className="text-gray-500">Qty {product.quantity}</p>
                 </div>
               </div>
             </div>

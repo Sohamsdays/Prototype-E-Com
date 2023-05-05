@@ -345,15 +345,17 @@ const CheckoutPage = () => {
 
             <div className="mt-10 pt-6 border-t border-gray-200 sm:flex sm:items-center sm:justify-between">
               {/* <Link href="/with_progress_bars"> */}
+              <Link href="/user/order-history" >
               <button
                 type="submit"
                 className="w-full bg-indigo-600 border border-transparent rounded-md shadow-sm py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500 sm:ml-6 sm:order-last sm:w-auto"
               >
                 Continue
               </button>
+              </Link>
               {/* </Link> */}
               <p className="mt-4 text-center text-sm text-gray-500 sm:mt-0 sm:text-left">
-                You be charged until the next step.
+                You wont be charged until the next step.
               </p>
             </div>
           </div>
