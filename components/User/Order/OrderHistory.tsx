@@ -110,7 +110,15 @@ export default function OrderHistory() {
   }
 
   return (
-    <>
+    <><div className="px-4 sm:px-0">
+    <h1 className="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl">
+      Order history
+    </h1>
+    <p className="mt-2 text-sm text-gray-500">
+      Check the status of recent orders, manage returns, and
+      download invoices.
+    </p>
+  </div>
       {cartItems.map((product) => (
         <div key={product.id} className="flex py-6 sm:py-10">
           <div className="min-w-0 flex-1 lg:flex lg:flex-col">

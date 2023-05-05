@@ -19,7 +19,7 @@ import { test, expect } from "@playwright/test";
 
 test("Valid Login", async ({ page }) => {
   await page.goto("https://www.koona.xyz/auth/signIn");
-  
+  await page.pause();
   await page.locator("#email").click();
   await page.locator("#email").fill("kminchelle");
   await page.getByLabel("Password").click();
@@ -27,3 +27,27 @@ test("Valid Login", async ({ page }) => {
   await page.getByRole("button", { name: "Sign in" }).click();
   await expect(page).toHaveURL("https://www.koona.xyz");
 });
+
+
+// test("E2E customer journey", async ({ page }) => {
+//   await page.goto("https://www.koona.xyz");
+//   await page.pause();
+//   await page.getByRole('button', { name: 'Add to cart , Non-Alcoholic Concentrated Perfume Oil' }).click();
+//   await page.getByRole('button', { name: 'Add to cart , Eau De Perfume Spray' }).click();
+//   await page.getByPlaceholder('Search for Phone, Car, Shirt...').click();
+//   await page.getByPlaceholder('Search for Phone, Car, Shirt...').fill('Car');
+//   await page.getByPlaceholder('Search for Phone, Car, Shirt...').press('Enter');
+//   await page.getByRole('button', { name: 'Add to cart , Elbow Macaroni - 400 gm' }).click();
+//   await page.locator('div').filter({ hasText: /^3items in cart, view bag$/ }).getByRole('button').click();
+//   await page.getByRole('button', { name: 'Checkout' }).click();
+//   await page.getByRole('button', { name: 'Sign in' }).click();
+//   await page.locator('#email').click();
+//   await page.locator('#email').fill('kminchelle');
+//   await page.getByLabel('Password').click();
+//   await page.getByLabel('Password').fill('0lelplR');
+//   await page.getByRole('button', { name: 'Sign in' }).click();
+//   await page.locator('div').filter({ hasText: /^3items in cart, view bag$/ }).getByRole('button').click();
+//   await page.getByRole('button', { name: 'Checkout' }).click();
+//   await page.getByRole('button', { name: 'Continue' }).click();
+//   await expect(page.locator('ul')).toContainText(['Text 3']);
+// });
