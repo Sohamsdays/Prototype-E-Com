@@ -19,7 +19,7 @@ import { test, expect } from "@playwright/test";
 
 test("Valid Login", async ({ page }) => {
   await page.goto("https://www.koona.xyz");
-  await page.pause();
+  
   await page.locator("#email").click();
   await page.locator("#email").fill("kminchelle");
   await page.getByLabel("Password").click();
