@@ -127,7 +127,7 @@ export default function AuthForm() {
                   Sign in
                 </button>
                 {resultError ? (
-                  <h1 className="flex items-center ">Error: Wrong Username or Password</h1>
+                  <h1 className="flex items-center ">Error: Wrong Username or Password Try username = kminchelle and password = 0lelplR </h1>
                 ) : null}
               </div>
             </form>
