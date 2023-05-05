@@ -7,7 +7,7 @@ interface Session1 extends DefaultSession {
   user?: {
     name?: string | null;
     email?: string | null;
-    image?: string ;
+    image?: string;
     username?: string;
     lastName?: string;
     firstName?: string;
@@ -54,10 +54,11 @@ export default function Profile() {
               </span> */}
                     <input
                       type="text"
+                      disabled
                       //name={Session1.user.username || null}
                       id="username"
                       autoComplete="username"
-                      className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm"
+                      className="mt-1 cursor-not-allowed block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm bg-gray-300"
                       defaultValue={Session1.user.username}
                     />
                   </div>
@@ -78,7 +79,7 @@ export default function Profile() {
                       aria-hidden="true"
                     >
                       <img
-                        className="rounded-full h-full w-full"
+                        className="rounded-full h-full w-full cursor-not-allowed"
                         src={Session1.user.image}
                         alt="Hello"
                       />
@@ -135,12 +136,13 @@ export default function Profile() {
                   First name
                 </label>
                 <input
+                  disabled
                   defaultValue={Session1.user.firstName}
                   type="text"
                   name="first-name"
                   id="first-name"
                   autoComplete="given-name"
-                  className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm"
+                  className="mt-1 cursor-not-allowed block w-full border bg-gray-300 border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm"
                 />
               </div>
 
@@ -152,12 +154,13 @@ export default function Profile() {
                   Last name
                 </label>
                 <input
+                  disabled
                   defaultValue={Session1.user.lastName}
                   type="text"
                   name="last-name"
                   id="last-name"
                   autoComplete="family-name"
-                  className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm"
+                  className="mt-1 cursor-not-allowed block w-full bg-gray-300 border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm"
                 />
               </div>
 
@@ -169,12 +172,13 @@ export default function Profile() {
                   Gender
                 </label>
                 <input
+                  disabled
                   defaultValue={Session1.user.gender}
                   type="text"
                   name="company"
                   id="company"
                   autoComplete="organization"
-                  className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm"
+                  className="cursor-not-allowed mt-1 block w-full border bg-gray-300 border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm"
                 />
               </div>
             </div>

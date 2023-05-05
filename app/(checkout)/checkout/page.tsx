@@ -8,6 +8,7 @@ import { Suspense } from "react";
 import CheckoutItemList from "@/components/CheckoutFlow/CheckoutItemList";
 import { useSession, getSession } from "next-auth/react";
 import Redirect from "@/components/Redirect/Redirect";
+//import { useCartStore } from "@/store/cartStore";
 const steps = [
   { name: "Address", href: "#", status: "current" },
   { name: "Payment", href: "#", status: "upcoming" },
@@ -46,10 +47,15 @@ interface Products {
 }
 
 const CheckoutPage = () => {
+
   const cart = useCartStore((state) => state.cart);
   const { data: session, status } = useSession();
   useEffect(() => {}, [cart]);
   console.log(cart);
+  const total = cart.reduce(
+    (acc, product) => acc + product.price * (product.quantity as number),
+    0
+  );
 
   if (status === "loading") {
     return null;
@@ -400,22 +406,19 @@ const CheckoutPage = () => {
               <dl className="hidden text-sm font-medium text-gray-900 space-y-6 border-t border-gray-200 pt-6 lg:block">
                 <div className="flex items-center justify-between">
                   <dt className="text-gray-600">Subtotal</dt>
-                  <dd>$320.00</dd>
+                  <dd>Rs{" "+total}</dd>
                 </div>
 
                 <div className="flex items-center justify-between">
                   <dt className="text-gray-600">Shipping</dt>
-                  <dd>$15.00</dd>
+                  <dd>Rs 15</dd>
                 </div>
 
-                <div className="flex items-center justify-between">
-                  <dt className="text-gray-600">Taxes</dt>
-                  <dd>$26.80</dd>
-                </div>
+               
 
                 <div className="flex items-center justify-between border-t border-gray-200 pt-6">
                   <dt className="text-base">Total</dt>
-                  <dd className="text-base">$361.80</dd>
+                  <dd className="text-base">Rs{" "+(total+15)}</dd>
                 </div>
               </dl>
 
