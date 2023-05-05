@@ -25,6 +25,7 @@ test("Valid Login", async ({ page }) => {
   await page.getByLabel("Password").click();
   await page.getByLabel("Password").fill("0lelplR");
   await page.getByRole("button", { name: "Sign in" }).click();
+  await page.waitForTimeout(4000);
   await expect(page).toHaveURL("https://www.koona.xyz");
 });
 
@@ -64,7 +65,7 @@ test("E2E customer journey", async ({ page }) => {
     .click();
   await page.getByRole("button", { name: "Checkout" }).click();
   await page.getByRole("button", { name: "Continue" }).click();
-  await page.waitForTimeout(4000);
+  await page.waitForTimeout(5000);
   const element = await page.$(".font-extrabold");
   const textContent = await element?.textContent();
   await expect(textContent).toContain("Order history");
