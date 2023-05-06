@@ -29,7 +29,7 @@ function RootLayout({
           {/* to keep footer on the bottom always, add justify-between in the body */}
           <Header />
           {/* <QueryClientProvider client={queryClient}> */}
-          <main className="mt-36 max-w-7xl mx-auto mb-auto relative  border-2 border-red-500">
+          <main className="mt-36 max-w-7xl mx-auto mb-auto relative  border-2">
             {children}
           </main>
           {/* </QueryClientProvider> */}

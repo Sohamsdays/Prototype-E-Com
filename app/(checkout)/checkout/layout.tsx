@@ -18,10 +18,9 @@ import Providers from "@/app/provider/providers";
 
 const CheckoutLayout = ({
   children,
-
-  // Component,
-  // pageProps,
-}: {
+}: // Component,
+// pageProps,
+{
   children: React.ReactNode;
 
   // Component: AppProps["Component"];
@@ -34,15 +33,15 @@ const CheckoutLayout = ({
         {/* <SessionProvider session={pageProps.session}> */}
         <Providers>
           <CheckoutHeader />
-          <main className=" max-w-[1440px] mx-auto mb-auto relative  border-2 border-red-500">
+          <main className=" max-w-[1440px] mx-auto mb-auto relative  border-2">
             {children}
           </main>
           <CheckoutFooter />
-          </Providers>
+        </Providers>
         {/* </SessionProvider> */}
       </body>
     </html>
   );
-}
+};
 
 export default CheckoutLayout;
